@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.landing',
+    'landing',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -127,3 +127,19 @@ TEMPLATE_DIRS = (
 
 # Turn off south during test
 SOUTH_TESTS_MIGRATE = False
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+)
+
+# Social auth settings
+LOGIN_REDIRECT_URL = '/tasks/'
+SOCIAL_AUTH_FACEBOOK_KEY = '392682690927802'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ed3fb15ef7dcff061d98f29d68f1fc53'
