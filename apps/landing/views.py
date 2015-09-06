@@ -13,5 +13,5 @@ def index(request):
         return redirect('/tasks/')
     else:
         template = loader.get_template('landing/index.html')
-        context = RequestContext(request, {1})
+        context = RequestContext(request, {})
         return HttpResponse(template.render(context))
