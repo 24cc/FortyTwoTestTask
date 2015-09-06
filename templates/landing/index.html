@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Task MG{% endblock title %}
+{% block content %}
+
+    <header class="into-header" style="background-image: url('/static/img/l_bg.jpg');">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1 class="wh t-bold">Tasks MG</h1>
+                    <hr class="pretty-border">
+                    <span class="sub-text">Modern web task management service for create/manage tasks and build own team</span>
+                    <div class="strut"></div>
+                    <span>
+                        <a href="#" class="btn btn-block btn-social btn-facebook">
+                            <i class="fa fa-facebook-official"></i> Sign in with Facebook
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row blocks">
+            <div class="col-md-4">
+                <h2>Description</h2>
+                <p>Tasks MG - is the modern wev tasks management service for create/manage tasks and build own team</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Features</h2>
+                <ul class="lst">
+                    <li>Manage your tasks</li>
+                    <li>Set deadline for tasks</li>
+                    <li>Build your team via Facebook</li>
+                    <li>Аssign/re-assign tasks to your teammates</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>About the author</h2>
+                <p>My name is Bogdan Piven. I am a 24 years old, and I am fond of sports and web - developing.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>Copyright © njuice 2015</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock content %}

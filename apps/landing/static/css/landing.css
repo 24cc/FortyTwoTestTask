@@ -1,0 +1,68 @@
+body {
+  margin-top: 50px;
+
+
+}
+
+.strut {
+  margin-top: 20px;
+}
+
+.t-bold {
+  font-weight: 600;
+}
+
+.sub-text {
+  color: white;
+  font-size: 18px;
+  line-height: 1.1;
+  display: block;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 100;
+  margin: 10px 0 0;
+
+}
+
+.pretty-border {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 255.75), rgba(0, 0, 0, 0));
+}
+
+.into-header {
+  padding: 100px;
+  background-color: gray;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 50px;
+}
+
+.into-header .site-heading {
+  text-align: center;
+}
+
+.wh {
+  color: white;
+}
+
+.btn-facebook {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.row.blocks .col-md-4 ul {
+  padding-left: 25px;
+}
+
+footer {
+  padding-top: 30px;
+  color: gainsboro;
+}
+
+footer p {
+  text-align: center;
+}

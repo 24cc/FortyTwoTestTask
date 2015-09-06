@@ -1,0 +1,66 @@
+body {
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+/*
+body {
+  background: url('/static/img/l_bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*/
+
+.pretty-border {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.into-header {
+  background-color: gray;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-bottom: 50px;
+}
+
+.into-header .site-heading {
+  text-align: center;
+}
+
+.wh {
+  color: white;
+}
+
+.lst {
+  font-size: 18px;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  width: 60%;
+}
+
+.desc {
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  float: right;
+  width: 50%;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.btn-facebook {
+  width: 200px;
+  margin: 0 auto;
+}
