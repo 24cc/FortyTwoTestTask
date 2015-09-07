@@ -1,3 +1,13 @@
 Django==1.6.7
 42cc-pystyle
 python-social-auth
+python-dateutil
+python-mimeparse
+django-tastypie
+pusher
+djangorestframework
+pyOpenSSL
+requests
+facebook-sdk
+selenium
+unittest2
