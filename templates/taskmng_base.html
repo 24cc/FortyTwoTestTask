@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock title %} - njuice test</title>
+
+        <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
+
+        <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/angular-notify.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/taskmng.css' %}"/>
+
+
+        {% block extra_head %}{% endblock extra_head %}
+
+    </head>
+    <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+
+
+        <!-- Nav bar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Task MG</a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="/tasks/">Tasks</a>
+                        </li>
+                        <li>
+                            <a href="/team/">Team</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-user"> {{ user.first_name }} {{ user.last_name }}</span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'auth:logout' %}?next=/"><span class="glyphicon glyphicon-log-out" title="Logout"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="main">
+        {% block content %}{% endblock content %}
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'js/angular.min.js' %}"></script>
+        <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+        <script src="//cdn.jsdelivr.net/angular.pusher/latest/pusher-angular.min.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.2.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/angular-cookies.min.js' %}"></script>
+        <script src="{% static 'js/angular-resource.min.js' %}"></script>
+        <script src="{% static 'js/sortable.js' %}"></script>
+        <script src="{% static 'js/ngFacebook.js' %}"></script>
+        <script src="{% static 'js/modal.js' %}"></script>
+        <script src="{% static 'js/angular-route.js' %}"></script>
+        <script src="{% static 'js/angular-notify.js' %}"></script>
+        <script src="{% static 'js/tasks.js' %}"></script>
+        <script src="{% static 'js/team.js' %}"></script>
+
+        {% block extra_footer %}{% endblock extra_footer %}
+    </body>
+</html>

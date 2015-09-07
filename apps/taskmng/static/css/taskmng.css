@@ -1,0 +1,61 @@
+/*
+    Main app css
+*/
+
+.main {
+    margin-top: 50px;
+}
+
+.remove {
+    cursor: pointer;
+}
+
+.due {
+    width: 200px;
+}
+
+.table>tbody>tr>td {
+    vertical-align: middle;
+}
+
+i.remove.glyphicon.glyphicon-remove-circle {
+  font-size: 18px;
+}
+
+input.task-text {
+  border: none;
+  border-bottom: 1px dotted gainsboro;
+}
+
+input.task-text:focus {
+    outline: 0;
+}
+
+.strut {
+  padding: 10px;
+}
+
+ul.invitable {
+    padding-left: 5px;
+}
+
+.media.inv-fr {
+    margin-top: 0px;
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 5px;
+}
+
+.round {
+    border: 2px solid gainsboro;
+    border-radius: 100px;
+}
+
+.remove_member {
+    vertical-align: sub;
+    margin-left: 5px;
+}
+
+a.team-btn {
+  text-decoration: none;
+  color: dimgray;
+}

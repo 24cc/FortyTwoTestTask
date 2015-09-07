@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'social.apps.django_app.default',
     'landing',
 )
 
@@ -137,15 +137,20 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
-    # 'social.apps.django_app.context_processors.backends',
-    # 'social.apps.django_app.context_processors.login_redirect',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 
 AUTHENTICATION_BACKENDS = (
     # 'social.backends.facebook.FacebookOAuth2',
-    # 'taskmng.my_facebook_auth.CustomFacebookOAuth2',
-    # 'social.backends.google.GoogleOAuth2',
-    # 'social.backends.twitter.TwitterOAuth',
+    'taskmng.my_facebook_auth.CustomFacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+# Social auth settings
+LOGIN_REDIRECT_URL = '/tasks/'
+SOCIAL_AUTH_FACEBOOK_KEY = '392682690927802'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ed3fb15ef7dcff061d98f29d68f1fc53'
