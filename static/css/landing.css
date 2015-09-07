@@ -1,23 +1,36 @@
 body {
-    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  margin-top: 50px;
+
+
 }
-/*
-body {
-  background: url('/static/img/l_bg.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+
+.strut {
+  margin-top: 20px;
 }
-*/
+
+.t-bold {
+  font-weight: 600;
+}
+
+.sub-text {
+  color: white;
+  font-size: 18px;
+  line-height: 1.1;
+  display: block;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 100;
+  margin: 10px 0 0;
+
+}
 
 .pretty-border {
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 255.75), rgba(0, 0, 0, 0));
 }
 
 .into-header {
+  padding: 100px;
   background-color: gray;
   background: no-repeat center center;
   background-attachment: scroll;
@@ -36,31 +49,20 @@ body {
   color: white;
 }
 
-.lst {
-  font-size: 18px;
-  color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid;
-  width: 60%;
-}
-
-.desc {
-  font-size: 18px;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid;
-  float: right;
-  width: 50%;
-}
-
-.top-buffer {
-  margin-top: 20px;
-}
-
 .btn-facebook {
   width: 200px;
   margin: 0 auto;
+}
+
+.row.blocks .col-md-4 ul {
+  padding-left: 25px;
+}
+
+footer {
+  padding-top: 30px;
+  color: gainsboro;
+}
+
+footer p {
+  text-align: center;
 }
