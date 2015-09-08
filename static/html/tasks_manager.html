@@ -1,5 +1,20 @@
 <div class="strut"></div>
-<div></div>
+<div>
+    <form name="newTaskForm" class="form-inline" novalidate>
+        <div class="form-group" style="width: 30%;">
+            <label class="sr-only" for="textField">Task</label>
+            <input style="width: 100%;" type="text" id="textField" class="form-control" ng-model="new_task.text" placeholder="Type your task here..." required /><br />
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="dateField">Due to</label>
+            <input type="date" id="dateField" class="form-control" ng-model="new_task.due_to" title="Due to" required /><br />
+        </div>
+        <div class="form-group">
+            <input id="addButton" type="submit" class="btn btn-info" value="+" />
+        </div>
+    </form>
+</div>
+<hr/>
 <div>
     <table class="table">
         <thead>

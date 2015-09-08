@@ -12,6 +12,8 @@
                     {completed:false, text: 'task1', due_to: new Date('2015-09-08'), assigned_to:{first_name:'Fname', last_name: 'Lname'}},
                     {completed:false, text: 'task2', due_to: new Date('2015-09-08'), assigned_to:{first_name:'Fname1', last_name: 'Lname2'}}
                 ];
+                $scope.new_task = {};
+
             },
             controllerAs: 'task_item'
         };
