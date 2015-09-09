@@ -1,6 +1,6 @@
 <div class="strut"></div>
 <div>
-    <form name="newTaskForm" class="form-inline" novalidate>
+    <form name="newTaskForm" class="form-inline" ng-submit="newTaskForm.$valid && task_item.add()"  novalidate>
         <div class="form-group" style="width: 30%;">
             <label class="sr-only" for="textField">Task</label>
             <input style="width: 100%;" type="text" id="textField" class="form-control" ng-model="new_task.text" placeholder="Type your task here..." required /><br />
@@ -12,7 +12,7 @@
         <div class="form-group">
             <input id="addButton" type="submit" class="btn btn-info" value="+" />
         </div>
-    </form>
+  </form>
 </div>
 <hr/>
 <div>
@@ -27,8 +27,9 @@
             </tr>
         </thead>
         <tbody ng-model="tasks">
-            <tr class="task" ng-repeat="task in tasks">
+            <tr class="task" ng-repeat="task in tasks | orderBy:'priority'">
                 <td>
+                    <input type="hidden" ng-model="task.priority">
                     <input type="checkbox" ng-model="task.completed">
                 </td>
                 <td style="width: 250px;"><input class="task-text" type="text" ng-model="task.text"></td>
@@ -39,7 +40,7 @@
                     </div>
                 </td>
                 <td>
-                   {{ task.assigned_to.first_name }} {{ task.assigned_to.last_name }}
+                   <div ng-repeat="assigned in task.assigned_to">{{ assigned.first_name }} {{ assigned.last_name }}</div>
                 </td>
                 <td><i class="remove glyphicon glyphicon-remove-circle"></i></td>
             </tr>
