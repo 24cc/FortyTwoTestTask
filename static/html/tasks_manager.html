@@ -19,31 +19,33 @@
     <table class="table">
         <thead>
             <tr>
-            <th>#</th>
-            <th>Task</th>
-            <th>Due to</th>
-            <th>Assigned to</th>
-            <th></th>
+                <th>#</th>
+                <th>Task</th>
+                <th>Due to</th>
+                <th>Assigned to</th>
+                <th></th>
             </tr>
         </thead>
-        <tbody ng-model="tasks">
+        <tbody ui-sortable="draggable" ng-model="tasks">
             <tr class="task" ng-repeat="task in tasks | orderBy:'priority'">
                 <td>
                     <input type="hidden" ng-model="task.priority">
-                    <input type="checkbox" ng-model="task.completed">
+                    <input type="checkbox" ng-model="task.completed" ng-change="task_item.edit(task)">
                 </td>
-                <td style="width: 250px;"><input class="task-text" type="text" ng-model="task.text"></td>
+                <td style="width: 250px;"><input class="task-text" type="text" ng-model="task.text" ng-blur="task_item.edit(task)"></td>
                 <td>
                     <div class="input-group due">
                         <span class="input-group-addon" id="basic-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                        <input type="date" class="form-control" ng-model="task.due_to" aria-describedby="basic-addon">
+                        <input type="date" class="form-control" ng-change="task_item.edit(task)" ng-model="task.due_to" aria-describedby="basic-addon">
                     </div>
                 </td>
                 <td>
-                   <div ng-repeat="assigned in task.assigned_to">{{ assigned.first_name }} {{ assigned.last_name }}</div>
+                    <div ng-repeat="assigned in task.assigned_to">{{ assigned.first_name }} {{ assigned.last_name }}</div>
                 </td>
-                <td><i class="remove glyphicon glyphicon-remove-circle"></i></td>
+                <td><i class="remove glyphicon glyphicon-remove-circle" ng-click="task_item.remove(task)"></i></td>
             </tr>
         </tbody>
     </table>
 </div>
+<hr/>
+<div style="margin-top: 10px;"><span>Completed tasks: <span class="badge">{{(tasks |filter:{completed:true}).length }}</span></span></div>
