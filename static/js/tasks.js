@@ -46,20 +46,98 @@
 
     }]);
 
+    app.factory('Teams', ['$http', function($http){
 
+        var Teams = function(data){
+            angular.extend(this, data);
+        };
 
+        Teams.get = function(ownerId) {
+            return $http.get('/api/v1/teams/?format=json&owner=' + ownerId);
+        };
+        return Teams;
+
+    }]);
+
+    app.factory('Teammates', ['$http', function($http){
+
+        var Teammates = function(data){
+            angular.extend(this, data);
+        };
+
+        Teammates.getAll = function(themeId) {
+            return $http.get('/api/v1/teammates/?format=json&team=' + themeId);
+        };
+        return Teammates;
+    }]);
+
+    // Directives team member dng
+    app.directive('draggable', function() {
+        return {
+            restrict:'A',
+            link: function(scope, element, attrs) {
+                element.draggable({
+                    revert:true
+                });
+            }
+        };
+    });
+
+    app.directive('droppable', function($compile, notify, $rootScope, $filter, Tasks) {
+        return {
+            restrict: 'A',
+                link: function(scope,element,attrs){
+                    element.droppable({
+                    drop:function(event, ui) {
+
+                        var dragEl = angular.element(ui.draggable),
+                            dropEl = angular.element(this);
+
+                        if(dragEl && dropEl){
+                            var teammate = dragEl.scope()['teammate'],
+                                task = dropEl.scope()['task'];
+                            if(teammate && task) {
+
+                                var found = $filter("filter")($rootScope.tasks, {id: task.id}, true);
+                                if (found.length) {
+                                    var found_assigned = $filter("filter")(task.assigned_to, {id: teammate.user.id}, true);
+                                    if(!found_assigned.length) {
+                                        task.assigned_to.push(teammate.user);
+                                        $rootScope.tasks[found] = task;
+                                        Tasks.save(task).success(function(data){
+                                            notify({message: 'Task assigned!', templateUrl: '/static/html/angular-notify.html'});
+                                        });
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                });
+            }
+        };
+    });
 
     // Main app directive
     app.directive('tasksManagement', function(){
         return {
             restrict: 'E',
             templateUrl: '/static/html/tasks_manager.html',
-            controller: function($log, $scope, $filter, $http, $pusher, Tasks){
+            controller: function($log, $scope, $filter, $http, $pusher, Tasks, Teams, Teammates){
 
+                $scope.show_team = false;
                 this.current_user = null;
                 $scope.new_task = {};
                 $scope.tasks = [];
+                $scope.team = null;
+                $scope.teammates = [];
 
+                /**
+                 * Toggle team list
+                 */
+                $scope.showTeam = function(){
+                    $scope.show_team = !$scope.show_team;
+                };
 
                 /**
                  * Tasks ui.sortable drag & drop config
@@ -175,6 +253,16 @@
                         $scope.tasks = response.data.objects;
                     });
 
+                    // Fetch team
+                    Teams.get(data[0]['pk']).then(function(response) {
+                        $scope.team = response.data.objects[0];
+                        if($scope.team && $scope.team.id) {
+                            Teammates.getAll($scope.team.id).then(function (response) {
+                                $scope.teammates = response.data.objects;
+                            })
+                        }
+                    });
+
                 });
 
                 /**
@@ -191,4 +279,5 @@
             controllerAs: 'task_item'
         };
     });
+
 })();
