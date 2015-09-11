@@ -8,6 +8,8 @@ api = Api(api_name='v1')
 api.register(TasksResource())
 api.register(UserResource())
 api.register(UserSocialResource())
+api.register(TeamsResource())
+api.register(TeammatesResource())
 
 
 urlpatterns = patterns(
